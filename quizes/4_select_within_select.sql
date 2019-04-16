@@ -1,4 +1,4 @@
---* 1. Select the code that shows the name, region and population of the smallest country in each region
+--* 1. SELECT the code that shows the name, region AND population of the smallest country IN each region
 --* answer:
 SELECT region, name, population
 FROM bbc x
@@ -6,7 +6,7 @@ WHERE population <= ALL (SELECT population
 FROM bbc y
 WHERE y.region=x.region AND population>0)
 
---* 2. Select the code that shows the countries belonging to regions with all populations over 50000
+--* 2. SELECT the code that shows the countries belonging to regions with all populations over 50000
 --* answer:
 SELECT name, region, population
 FROM bbc x
@@ -14,7 +14,7 @@ WHERE 50000 < ALL (SELECT population
 FROM bbc y
 WHERE x.region=y.region AND y.population>0)
 
---* 3. Select the code that shows the countries with a less than a third of the population of the countries around it
+--* 3. SELECT the code that shows the countries with a less than a third of the population of the countries around it
 --* answer:
 SELECT name, region
 FROM bbc x
@@ -22,7 +22,7 @@ WHERE population < ALL (SELECT population/3
   FROM bbc y
   WHERE y.region = x.region AND y.name != x.name)
 
---* 4. Select the result that would be obtained from the following code:
+--* 4. SELECT the result that would be obtained FROM the following code:
 SELECT name
 FROM bbc
 WHERE population >
@@ -40,7 +40,7 @@ WHERE population >
 -- Russia
 -- Turkey
 
---* 5. Select the code that would show the countries with a greater GDP than any country in Africa (some countries may have NULL gdp values).
+--* 5. SELECT the code that would show the countries with a greater GDP than any country IN Africa (some countries may have NULL gdp values).
 --* answer:
 SELECT name
 FROM bbc
@@ -48,7 +48,7 @@ WHERE gdp > (SELECT MAX(gdp)
 FROM bbc
 WHERE region = 'Africa')
 
---* 6.Select the code that shows the countries with population smaller than Russia but bigger than Denmark
+--* 6.SELECT the code that shows the countries with population smaller than Russia but bigger than Denmark
 --* answer
 SELECT name
 FROM bbc
@@ -59,7 +59,7 @@ WHERE population < (SELECT population
   FROM bbc
   WHERE name='Denmark')
 
---* 7. >Select the result that would be obtained from the following code:
+--* 7. >SELECT the result that would be obtained FROM the following code:
 SELECT name
 FROM bbc
 WHERE population > ALL

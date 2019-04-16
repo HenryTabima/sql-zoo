@@ -1,23 +1,23 @@
---? 1. Select the code which uses an outer join correctly.
+--? 1. SELECT the code which uses an outer JOIN cORrectly.
 --* answer:
 SELECT teacher.name, dept.name
 FROM teacher LEFT OUTER JOIN dept ON (teacher.dept = dept.id)
 
---? 2. Select the correct statement that shows the name of department which employs Cutflower -
+--? 2. SELECT the cORrect statement that shows the name of department which employs Cutflower -
 --* answer:
 SELECT dept.name
 FROM teacher JOIN dept ON (dept.id = teacher.dept)
 WHERE teacher.name = 'Cutflower'
 
---? 3. Select out of following the code which uses a JOIN to show a list of all the departments and number of employed teachers
+--? 3. SELECT out of following the code which uses a JOIN to show a list of all the departments AND number of employed teachers
 --* answer:
 SELECT dept.name, COUNT(teacher.name)
 FROM teacher RIGHT JOIN dept ON dept.id = teacher.dept
 GROUP BY dept.name
 
---? 4. Using SELECT name, dept, COALESCE(dept, 0) AS result FROM teacher on teacher table will:
+--? 4. Using SELECT name, dept, COALESCE(dept, 0) AS result FROM teacher ON teacher table will:
 --* answer:
--- display 0 in result column for all teachers without department
+-- display 0 IN result column fOR all teachers without department
 
 --? 5. Query:
 SELECT name,
@@ -28,9 +28,9 @@ SELECT name,
 FROM teacher
 --? shows following 'digit':
 --* answer:
--- 'four' for Throd
+-- 'four' fOR Throd
 
---? 6. Select the result that would be obtained from the following code:
+--? 6. SELECT the result that would be obtained FROM the following code:
 SELECT name,
   CASE
        WHEN dept
