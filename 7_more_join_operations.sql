@@ -8,11 +8,11 @@ SELECT yr
 FROM movie
 WHERE title = 'citizen kane';
 
---? 3. List all of the Star Trek movies, include the id, title AND yr (all of these movies include the words Star Trek IN the title). Order results BY year.
+--? 3. List all of the Star Trek movies, include the id, title AND yr (all of these movies include the words Star Trek IN the title). order results BY year.
 SELECT id, title, yr
 FROM movie
 WHERE title like '%star trek%'
-ORDER BY yr;
+orDER BY yr;
 
 --? 4. What id number does the actor 'Glenn Close' have?
 SELECT id
@@ -90,7 +90,7 @@ WHERE movieid IN (
   WHERE name = 'julie andrews'))
   AND ord = 1;
 
---? 13. Obtain a list, IN alphabetical ORDER, of actors who've had at least 30 starring roles.
+--? 13. Obtain a list, IN alphabetical orDER, of actors who've had at least 30 starring roles.
 SELECT name
 FROM actor JOIN casting ON actor.id = actorid
 WHERE ord = 1
@@ -103,7 +103,7 @@ FROM movie
   JOIN casting ON movie.id = movieid
 WHERE yr = 1978
 GROUP BY title
-ORDER BY COUNT(actorid) desc, title;
+orDER BY COUNT(actorid) desc, title;
 
 --? 15. List all the people who have worked with 'Art Garfunkel'.
 SELECT name

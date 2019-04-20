@@ -91,4 +91,4 @@ SELECT game.mdate,
 FROM game
   JOIN goal ON (game.id = goal.matchid)
 GROUP BY game.mdate,team1, team2
-ORDER BY game.mdate, goal.matchid, team1, team2
+orDER BY game.mdate, goal.matchid, team1, team2

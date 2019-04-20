@@ -1,28 +1,28 @@
---? 1. SELECT the statement which lists the unfORtunate directORs of the movies which have caused financial loses (gross < budget)
+--? 1. SELECT the statement which lists the unfortunate directors of the movies which have caused financial loses (gross < budget)
 --* answer:
 SELECT name
-FROM actOR INNER JOIN movie ON actOR.id = directOR
+FROM actor INNER JOIN movie ON actor.id = director
 WHERE gross < budget
 
---? 2. SELECT the cORrect example of JOINing three tables
+--? 2. SELECT the correct example of JOINing three tables
 --* answer:
 SELECT *
-FROM actOR JOIN casting ON actOR.id = actORid
+FROM actor JOIN casting ON actor.id = actorid
   JOIN movie ON movie.id = movieid
 
---? 3. SELECT the statement that shows the list of actORs called 'John' BY ORder of number of movies IN which they acted
+--? 3. SELECT the statement that shows the list of actors called 'John' BY order of number of movies IN which they acted
 --* answer:
 SELECT name, COUNT(movieid)
-FROM casting JOIN actOR ON actORid=actOR.id
+FROM casting JOIN actor ON actorid=actor.id
 WHERE name LIKE 'John %'
 GROUP BY name
-ORDER BY 2 DESC
+orDER BY 2 DESC
 
 --? 4. SELECT the result that would be obtained FROM the following code:
 SELECT title
 FROM movie JOIN casting ON (movieid=movie.id)
-  JOIN actOR ON (actORid=actOR.id)
-WHERE name='Paul Hogan' AND ORd = 1
+  JOIN actor ON (actorid=actor.id)
+WHERE name='Paul Hogan' AND ord = 1
 --* answer:
 -- Table-B
 -- "Crocodile" Dundee
@@ -30,22 +30,22 @@ WHERE name='Paul Hogan' AND ORd = 1
 -- Flipper
 -- Lightning Jack
 
---? 5. SELECT the statement that lists all the actORs that starred IN movies directed BY Ridley Scott who has id 351
+--? 5. SELECT the statement that lists all the actors that starred IN movies directed BY Ridley Scott who has id 351
 --* answer:
 SELECT name
 FROM movie JOIN casting ON movie.id = movieid
-  JOIN actOR ON actOR.id = actORid
-WHERE ORd = 1 AND directOR = 351
+  JOIN actor ON actor.id = actorid
+WHERE ord = 1 AND director = 351
 
---? 6. There are two sensible ways to connect movie AND actOR. They are:
+--? 6. There are two sensible ways to connect movie AND actor. They are:
 --* answer:
--- - link the directOR column IN movies with the primary key IN actOR
--- - connect the primary keys of movie AND actOR via the casting table
+-- - link the director column IN movies with the primary key IN actor
+-- - connect the primary keys of movie AND actor via the casting table
 
 --? 7. SELECT the result that would be obtained FROM the following code:
 SELECT title, yr
-FROM movie, casting, actOR
-WHERE name='Robert De Niro' AND movieid=movie.id AND actORid=actOR.id AND ORd = 3
+FROM movie, casting, actor
+WHERE name='Robert De Niro' AND movieid=movie.id AND actorid=actor.id AND ord = 3
 --* answer:
 -- Table-B
 -- A Bronx Tale	        1993

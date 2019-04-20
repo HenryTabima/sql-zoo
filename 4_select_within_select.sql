@@ -16,7 +16,7 @@ WHERE continent = 'Europe'
     WHERE name = 'United Kingdom'
   );
 
---? 3. List the name AND continent of countries IN the continents containing either Argentina OR Australia. Order BY name of the country.
+--? 3. List the name AND continent of countries IN the continents containing either Argentina OR Australia. order BY name of the country.
 SELECT name, continent
 FROM world
 WHERE continent IN (
@@ -24,7 +24,7 @@ WHERE continent IN (
   FROM world
   WHERE name IN ('Argentina', 'Australia')
 )
-ORDER BY name;
+orDER BY name;
 
 --? 4. Which country has a population that is more than Canada but less than Poland? Show the name AND the population.
 SELECT name, population
@@ -72,8 +72,8 @@ FROM world x
 WHERE name = (SELECT name
 FROM world y
 WHERE y.continent = x.continent
-ORDER BY name limit 1)
-ORDER BY continent;
+orDER BY name limit 1)
+orDER BY continent;
 
 --? 9. Find the continents WHERE all countries have a population <= 25000000. Then find the names of the countries associated with these continents. Show name, continent AND population.
 SELECT name, continent, population
@@ -86,7 +86,7 @@ WHERE y.continent = x.continent) =
 (SELECT COUNT(name)
 FROM world z
 WHERE z.continent = x.continent AND z.population <= 25000000))
-ORDER BY name;
+orDER BY name;
 
 --? 10. Some countries have populations more than three times that of any of their neighbours (IN the same continent). Give the countries AND continents.
 SELECT name, continent
