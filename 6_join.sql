@@ -77,18 +77,10 @@ WHERE 'ger' IN (game.team1, game.team2)
 GROUP BY goal.matchid, game.mdate
 
 --? 13. List every match with the goals scored BY each team as shown. This will use "CASE WHEN" which has not been explained IN any previous exercises.
-SELECT game.mdate,
-  game.team1,
-  SUM(CASE
-    WHEN goal.teamid = game.team1 THEN 1
-    ELSE 0
-  END) AS score1,
-  game.team2,
-  SUM(CASE
-    WHEN goal.teamid = game.team2 THEN 1
-    ELSE 0
-  END) AS score2
-FROM game
-  JOIN goal ON (game.id = goal.matchid)
-GROUP BY game.mdate,team1, team2
-orDER BY game.mdate, goal.matchid, team1, team2
+SELECT mdate,
+  team1,
+  SUM(CASE WHEN teamid=team1 THEN 1 ELSE 0 END) score1,
+  team2,
+  SUM(CASE WHEN teamid=team2 THEN 1 ELSE 0 END) score2
+  FROM game LEFT JOIN goal ON matchid = id
+GROUP BY mdate,matchid,team1,team2
