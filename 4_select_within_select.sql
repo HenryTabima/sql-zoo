@@ -91,7 +91,7 @@ orDER BY name;
 --? 10. Some countries have populations more than three times that of any of their neighbours (IN the same continent). Give the countries AND continents.
 SELECT name, continent
 FROM world x
-WHERE x.population > any (
+WHERE population > ALL (
   SELECT population*3
   FROM world y
   WHERE y.continent = x.continent
